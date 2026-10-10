@@ -3,23 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zeinab-age</title>
+    <title>Age exercise</title>
   </head>
   <body>
     <script>
       //Age-ify (A future age calculator)
 
-      let yearOfBirth = 1989;
-      let yearFuture = 2045;
+      const yearOfBirth = 1989;
+      const yearFuture = 2045;
       const theirAge = yearFuture - yearOfBirth;
       console.log(" You will be " + theirAge + " years old in " + yearFuture);
 
       //Goodboy-Oldboy (A dog age calculator)
 
-      let dogYearOfBirth = 2024;
-      let dogYearFuture = 2027;
-      const dogAge = dogYearFuture - dogYearOfBirth;
-      const dogYear = dogAge * 7;
+      const dogYearOfBirth = 2024;
+      const dogYearFuture = 2027;
+      const age = dogYearFuture - dogYearOfBirth;
+      const dogYear = age * 7;
       const shouldShowResultInDogYears = true;
       if (shouldShowResultInDogYears) {
         console.log(
@@ -35,15 +35,16 @@
       }
 
       //Housey pricey (A house price estimator)
-      const peterWidth = 8;
-      const peterDepth = 10;
-      const peterHeight = 10;
+      const peterHouseWidth = 8;
+      const peterHouseDepth = 10;
+      const peterHouseHeight = 10;
       const peterGardenSizeInM2 = 100;
       const peterHousePrice = 2500000;
 
-      const peterVolumeInMeters = peterWidth * peterDepth * peterHeight;
+      const peterHouseVolume =
+        peterHouseWidth * peterHouseDepth * peterHouseHeight;
       const realHousePrice =
-        peterVolumeInMeters * 2.5 * 1000 + peterGardenSizeInM2 * 300;
+        peterHouseVolume * 2.5 * 1000 + peterGardenSizeInM2 * 300;
 
       if (realHousePrice < peterHousePrice) {
         console.log("Peter is paying too much for his house.");
@@ -53,15 +54,16 @@
         console.log("Peter is paying the right price for his house.");
       }
 
-      const juliaWidth = 5;
-      const juliaDepth = 11;
-      const juliaHeight = 8;
+      const juliaHouseWidth = 5;
+      const juliaHouseDepth = 11;
+      const juliaHouseHeight = 8;
       const juliaGardenSizeInM2 = 70;
       const juliaHousePrice = 1000000;
 
-      const juliaVolumeInMeters = juliaWidth * juliaDepth * juliaHeight;
+      const juliaHouseVolume =
+        juliaHouseWidth * juliaHouseDepth * juliaHouseHeight;
       const realHousePriceJulia =
-        juliaVolumeInMeters * 2.5 * 1000 + juliaGardenSizeInM2 * 300;
+        juliaHouseVolume * 2.5 * 1000 + juliaGardenSizeInM2 * 300;
 
       if (realHousePriceJulia < juliaHousePrice) {
         console.log("Julia is paying too much for her house.");
@@ -71,7 +73,7 @@
         console.log("Julia is paying the right price for her house.");
       }
 
-      //Ez Namey (Startup name generator) Optional
+      //Ez Name (Startup name generator) Optional
       const firstWords = [
         "Easy",
         "Awesome",
