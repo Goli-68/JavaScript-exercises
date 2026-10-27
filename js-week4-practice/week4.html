@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>week4</title>
+  </head>
+  <body>
+    <script>
+      let userName = "";
+      const todos = [];
+
+      function getReply(command) {
+        const text = command.trim();
+        const lowerCommand = text.toLowerCase();
+
+        if (lowerCommand.startsWith("hello my name is ")) {
+          const name = text.substring("hello my name is ".length).trim();
+
+          if (name === "") {
+            return "Please tell me your name";
+          }
+
+          userName = name;
+          return `Nice to meet you ${userName}`;
+        }
+
+        if (
+          lowerCommand === "what is my name?" ||
+          lowerCommand === "what is my name"
+        ) {
+          if (userName === "") {
+            return "I don't know your name yet";
+          }
+
+          return `Your name is ${userName}`;
+        }
+
+        if (
+          lowerCommand.startsWith("add ") &&
+          lowerCommand.endsWith(" to my todo")
+        ) {
+          const todo = text
+            .substring(4, text.length - " to my todo".length)
+            .trim();
+
+          if (todo === "") {
+            return "Please tell me what to add";
+          }
+
+          todos.push(todo);
+          return `${todo} added to your todo`;
+        }
+
+        if (
+          lowerCommand.startsWith("remove ") &&
+          lowerCommand.endsWith(" from my todo")
+        ) {
+          const todo = text
+            .substring("remove ".length, text.length - " from my todo".length)
+            .trim();
+
+          const todoIndex = todos.indexOf(todo);
+
+          if (todoIndex === -1) {
+            return `${todo} is not in your todo`;
+          }
+
+          todos.splice(todoIndex, 1);
+          return `Removed ${todo} from your todo`;
+        }
+
+        if (
+          lowerCommand === "what is on my todo?" ||
+          lowerCommand === "what is on my todo"
+        ) {
+          if (todos.length === 0) {
+            return "You have no todos";
+          }
+
+          if (todos.length === 1) {
+            return `You have 1 todo - ${todos[0]}`;
+          }
+
+          return `You have ${todos.length} todos - ${todos.join(" and ")}`;
+        }
+
+        /* Date*/
+        if (
+          lowerCommand === "what day is it today?" ||
+          lowerCommand === "what day is it today"
+        ) {
+          const today = new Date();
+
+          const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ];
+
+          const day = today.getDate();
+          const month = months[today.getMonth()];
+          const year = today.getFullYear();
+
+          return `${day}. of ${month} ${year}`;
+        }
+        /*Calculator*/
+
+        if (lowerCommand.startsWith("what is ")) {
+          const parts = lowerCommand.split(" ");
+
+          if (parts.length === 5) {
+            const firstNumber = Number(parts[2]);
+            const operator = parts[3];
+            const secondNumber = Number(parts[4]);
+
+            if (Number.isNaN(firstNumber) || Number.isNaN(secondNumber)) {
+              return "Please use numbers in your math question";
+            }
+
+            if (operator === "+") {
+              return String(firstNumber + secondNumber);
+            }
+
+            if (operator === "-") {
+              return String(firstNumber - secondNumber);
+            }
+
+            if (operator === "*") {
+              return String(firstNumber * secondNumber);
+            }
+
+            if (operator === "/") {
+              if (secondNumber === 0) {
+                return "You cannot divide by zero";
+              }
+
+              return String(firstNumber / secondNumber);
+            }
+
+            return "I can only calculate with +, -, * or /";
+          }
+        }
+        /*timer*/
+
+        if (lowerCommand.startsWith("set a timer for ")) {
+          const timerText = lowerCommand.replace("set a timer for ", "");
+          const minutes = Number(timerText.split(" ")[0]);
+
+          if (Number.isNaN(minutes) || minutes <= 0) {
+            return "Please choose a number of minutes greater than zero";
+          }
+
+          setTimeout(
+            function () {
+              console.log("Timer done");
+            },
+            minutes * 60 * 1000,
+          );
+
+          return `Timer set for ${minutes} minutes`;
+        }
+        /*extra*/
+
+        if (lowerCommand === "what can you do?") {
+          return "I can remember your name, manage your todos, tell the date, do math, and set timers";
+        }
+        return "Sorry, I don't understand that command";
+      }
+
+      /*test the code*/
+
+      console.log(getReply("Hello my name is Benjamin"));
+      console.log(getReply("What is my name?"));
+
+      console.log(getReply("Add fishing to my todo"));
+      console.log(getReply("Add singing in the shower to my todo"));
+      console.log(getReply("What is on my todo?"));
+
+      console.log(getReply("Remove fishing from my todo"));
+      console.log(getReply("What is on my todo?"));
+
+      console.log(getReply("What day is it today?"));
+      console.log(getReply("What is 3 + 3"));
+      console.log(getReply("What is 4 * 12"));
+
+      console.log(getReply("Set a timer for 1 minutes"));
+      console.log(getReply("What can you do?"));
+    </script>
+  </body>
+</html>
