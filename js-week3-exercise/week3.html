@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>week3</title>
+  </head>
+  <body>
+    <script>
+      /* exercise 1*/
+      /*Item array removal*/
+      const names = [
+        "Peter",
+        "Ahmad",
+        "Yana",
+        "kristina",
+        "Rasmus",
+        "Samuel",
+        "Katrine",
+        "Tala",
+      ];
+      const nameToRemove = "Ahmad";
+      const indexRemove = names.indexOf(nameToRemove);
+      if (indexRemove !== -1) {
+        names.splice(indexRemove, 1);
+      }
+
+      console.log(names);
+
+      /*exercise 2 */
+      /*When will we be there??*/
+      const travelInformation = {
+        speed: 50,
+        destinationDistance: 432,
+      };
+      function count(info) {
+        const speed = info.speed;
+        const distance = info.destinationDistance;
+        const totalHoursDecimal = distance / speed;
+        const hours = Math.floor(totalHoursDecimal);
+        const minutes = Math.round((totalHoursDecimal - hours) * 60);
+        return `The trip will take ${hours} hours  ${minutes} minutes`;
+      }
+      const travelTime = count(travelInformation);
+      console.log(travelTime);
+      /*exercise 3 */
+      /*Series duration of my life*/
+      const seriesDurations = [
+        {
+          title: "Friends",
+          days: 3,
+          hours: 11,
+          minutes: 0,
+        },
+        {
+          title: "Gotham",
+          days: 6,
+          hours: 11,
+          minutes: 0,
+        },
+        {
+          title: "Two and a half man",
+          days: 10,
+          hours: 2,
+          minutes: 0,
+        },
+      ];
+
+      function getLifeSpanHours() {
+        const hoursInDay = 24;
+        const daysInYear = 365;
+        const hoursInYear = hoursInDay * daysInYear;
+        const totalLifespanHours = hoursInYear * 80;
+        return totalLifespanHours;
+      }
+      const totalLifespanHours = getLifeSpanHours();
+      console.log(totalLifespanHours);
+
+      function getSeriesHours(series) {
+        const daysToHours = series.days * 24;
+        const totalSeriesHours =
+          daysToHours + series.hours + series.minutes / 60;
+        return totalSeriesHours;
+      }
+      function getSeriesPercentage(seriesHours, lifespanHours) {
+        const percentage = (seriesHours / lifespanHours) * 100;
+        return percentage;
+      }
+      const lifespanHours = getLifeSpanHours();
+
+      let totalPercentage = 0;
+
+      seriesDurations.forEach(function (series) {
+        const seriesHours = getSeriesHours(series);
+        const percentage = getSeriesPercentage(seriesHours, lifespanHours);
+        totalPercentage += percentage;
+        console.log(`${series.title} took ${percentage}% of my life`);
+      });
+      console.log(`In total that is ${totalPercentage}% of my life`);
+
+      /*Smart-ease - Back to the basics!*/
+      const notes = [];
+      function saveNote(content, id) {
+        const note = { content: content, id: id };
+        notes.push(note);
+      }
+      function getNote(id) {
+        if (id === "" || typeof id !== "number") {
+          console.log("Error: Please provide a valid number for the ID!");
+          return;
+        }
+        for (let i = 0; i < notes.length; i++) {
+          if (notes[i].id === id) {
+            return notes[i];
+          }
+        }
+      }
+
+      function logOutNotes() {
+        for (let i = 0; i < notes.length; i++) {
+          const note = notes[i];
+
+          console.log(
+            `The text that has id: ${note.id}, has the following content "${note.content}".`,
+          );
+        }
+      }
+
+      saveNote("Pick up groceries", 1);
+      saveNote("Do laundry", 2);
+      console.log(notes);
+      const firstNote = getNote(1);
+      console.log(firstNote);
+      //test//
+      logOutNotes();
+
+      //test an error//
+      getNote("abc");
+    </script>
+  </body>
+</html>
