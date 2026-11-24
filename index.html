@@ -1,119 +1,18 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Age exercise</title>
-  </head>
-  <body>
-    <script>
-      //Age-ify (A future age calculator)
-
-      const yearOfBirth = 1989;
-      const yearFuture = 2045;
-      const theirAge = yearFuture - yearOfBirth;
-      console.log(" You will be " + theirAge + " years old in " + yearFuture);
-
-      //Goodboy-Oldboy (A dog age calculator)
-
-      const dogYearOfBirth = 2024;
-      const dogYearFuture = 2027;
-      const age = dogYearFuture - dogYearOfBirth;
-      const dogYear = age * 7;
-      const shouldShowResultInDogYears = true;
-      if (shouldShowResultInDogYears) {
-        console.log(
-          "Your dog will be " +
-            dogYear +
-            " human years old in " +
-            dogYearFuture,
-        );
-      } else {
-        console.log(
-          "Your dog will be " + age + " dog years old in " + dogYearFuture,
-        );
-      }
-
-      //Housey pricey (A house price estimator)
-      const peterHouseWidth = 8;
-      const peterHouseDepth = 10;
-      const peterHouseHeight = 10;
-      const peterGardenSizeInM2 = 100;
-      const peterHousePrice = 2500000;
-
-      const peterHouseVolume =
-        peterHouseWidth * peterHouseDepth * peterHouseHeight;
-      const realHousePrice =
-        peterHouseVolume * 2.5 * 1000 + peterGardenSizeInM2 * 300;
-
-      if (realHousePrice < peterHousePrice) {
-        console.log("Peter is paying too much for his house.");
-      } else if (realHousePrice > peterHousePrice) {
-        console.log("Peter is paying too little for his house.");
-      } else {
-        console.log("Peter is paying the right price for his house.");
-      }
-
-      const juliaHouseWidth = 5;
-      const juliaHouseDepth = 11;
-      const juliaHouseHeight = 8;
-      const juliaGardenSizeInM2 = 70;
-      const juliaHousePrice = 1000000;
-
-      const juliaHouseVolume =
-        juliaHouseWidth * juliaHouseDepth * juliaHouseHeight;
-      const realHousePriceJulia =
-        juliaHouseVolume * 2.5 * 1000 + juliaGardenSizeInM2 * 300;
-
-      if (realHousePriceJulia < juliaHousePrice) {
-        console.log("Julia is paying too much for her house.");
-      } else if (realHousePriceJulia > juliaHousePrice) {
-        console.log("Julia is paying too little for her house.");
-      } else {
-        console.log("Julia is paying the right price for her house.");
-      }
-
-      //Ez Name (Startup name generator) Optional
-      const firstWords = [
-        "Easy",
-        "Awesome",
-        "good",
-        "nice",
-        "cheap",
-        "happy",
-        "lucky",
-        "Smart",
-        "great",
-        "Future",
-      ];
-      const secondWords = [
-        "money",
-        "firm",
-        "business",
-        "house",
-        "Ideas",
-        "company",
-        "city",
-        "Works",
-        "library",
-        "person",
-      ];
-      //I need explanation for the code below
-      const randomFirstIndex = Math.floor(Math.random() * 10);
-      const randomSecondIndex = Math.floor(Math.random() * 10);
-
-      const startupName =
-        firstWords[randomFirstIndex] + " " + secondWords[randomSecondIndex];
-
-      const nameLength = startupName.length;
-
-      console.log(
-        'The startup: "' +
-          startupName +
-          '" contains ' +
-          nameLength +
-          " characters",
-      );
-    </script>
-  </body>
-</html>
+<head>
+  <title>HyfBay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:400,800"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <main>
+    <h1>Welcome to hyfBay🤩</h1>
+    <h2>Available Products</h2>
+    <ul id="products"></ul>
+  </main>
+  <script src="hyfBayHelpers.js"></script>
+  <script src="main.js"></script>
+</body>
