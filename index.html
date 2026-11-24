@@ -3,117 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Age exercise</title>
+    <title>Hogwarts House generator</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <script>
-      //Age-ify (A future age calculator)
-
-      const yearOfBirth = 1989;
-      const yearFuture = 2045;
-      const theirAge = yearFuture - yearOfBirth;
-      console.log(" You will be " + theirAge + " years old in " + yearFuture);
-
-      //Goodboy-Oldboy (A dog age calculator)
-
-      const dogYearOfBirth = 2024;
-      const dogYearFuture = 2027;
-      const age = dogYearFuture - dogYearOfBirth;
-      const dogYear = age * 7;
-      const shouldShowResultInDogYears = true;
-      if (shouldShowResultInDogYears) {
-        console.log(
-          "Your dog will be " +
-            dogYear +
-            " human years old in " +
-            dogYearFuture,
-        );
-      } else {
-        console.log(
-          "Your dog will be " + age + " dog years old in " + dogYearFuture,
-        );
-      }
-
-      //Housey pricey (A house price estimator)
-      const peterHouseWidth = 8;
-      const peterHouseDepth = 10;
-      const peterHouseHeight = 10;
-      const peterGardenSizeInM2 = 100;
-      const peterHousePrice = 2500000;
-
-      const peterHouseVolume =
-        peterHouseWidth * peterHouseDepth * peterHouseHeight;
-      const realHousePrice =
-        peterHouseVolume * 2.5 * 1000 + peterGardenSizeInM2 * 300;
-
-      if (realHousePrice < peterHousePrice) {
-        console.log("Peter is paying too much for his house.");
-      } else if (realHousePrice > peterHousePrice) {
-        console.log("Peter is paying too little for his house.");
-      } else {
-        console.log("Peter is paying the right price for his house.");
-      }
-
-      const juliaHouseWidth = 5;
-      const juliaHouseDepth = 11;
-      const juliaHouseHeight = 8;
-      const juliaGardenSizeInM2 = 70;
-      const juliaHousePrice = 1000000;
-
-      const juliaHouseVolume =
-        juliaHouseWidth * juliaHouseDepth * juliaHouseHeight;
-      const realHousePriceJulia =
-        juliaHouseVolume * 2.5 * 1000 + juliaGardenSizeInM2 * 300;
-
-      if (realHousePriceJulia < juliaHousePrice) {
-        console.log("Julia is paying too much for her house.");
-      } else if (realHousePriceJulia > juliaHousePrice) {
-        console.log("Julia is paying too little for her house.");
-      } else {
-        console.log("Julia is paying the right price for her house.");
-      }
-
-      //Ez Name (Startup name generator) Optional
-      const firstWords = [
-        "Easy",
-        "Awesome",
-        "good",
-        "nice",
-        "cheap",
-        "happy",
-        "lucky",
-        "Smart",
-        "great",
-        "Future",
-      ];
-      const secondWords = [
-        "money",
-        "firm",
-        "business",
-        "house",
-        "Ideas",
-        "company",
-        "city",
-        "Works",
-        "library",
-        "person",
-      ];
-      //I need explanation for the code below
-      const randomFirstIndex = Math.floor(Math.random() * 10);
-      const randomSecondIndex = Math.floor(Math.random() * 10);
-
-      const startupName =
-        firstWords[randomFirstIndex] + " " + secondWords[randomSecondIndex];
-
-      const nameLength = startupName.length;
-
-      console.log(
-        'The startup: "' +
-          startupName +
-          '" contains ' +
-          nameLength +
-          " characters",
-      );
-    </script>
+    <div class="holder">
+      <h1>🪄🪄Hogwarts House generator🪄🪄</h1>
+      <p>Type your name to discover your Hogwarts House!</p>
+      <input id="name-input" type="text" placeholder="Enter your name" />
+      <button id="sort-btn" type="button" placeholder="writes your name">
+        Hogwarts House
+      </button>
+      <button id="try-again-btn" type="button" style="display: none">
+        Try again
+      </button>
+      <p id="result"></p>
+    </div>
+    <script src="index.js" defer></script>
   </body>
 </html>
